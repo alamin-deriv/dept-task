@@ -3,20 +3,8 @@ import styled from 'styled-components'
 import device from './../../utils/device'
 
 import Polygon from './../../assets/polygon.png'
-import Bol from './../../assets/BOL.png'
-import Kampen from './../../assets/KEMPEN.png'
-import PHILIPS from './../../assets/PHILIPS.png'
-import GEMEENTEMUSEUM from './../../assets/GEMEENTEMUSEUM.png'
 import PolygonBlue from './../../assets/Polygon-blue.png'
-import heroImage from './../../assets/heroImage.png'
-import BELIGHTNING from './../../assets/BELIGHTNING.png'
-import TUI from './../../assets/TUI.png'
-import CHOCOMEL from './../../assets/CHOCOMEL.png'
-import JBL from './../../assets/JBL.png'
-import ZALANDO from './../../assets/ZALANDO.png'
-import KONINKLIJKEBIBLIOTHEEK from './../../assets/KONINKLIJKE-BIBLIOTHEEK.png'
-import LIBERTYGLOBAL from './../../assets/LIBERTY-GLOBAL.png'
-import ARLA from './../../assets/ARLA.png'
+
 
 const StyledDiv = styled.div`
   padding: 30px 50px 50px 50px;
@@ -264,7 +252,7 @@ const QuoteSection = styled.div`
 `
 
 
-const Content = () => {
+const Content = ({listOfContents, isLoading}) => {
     return (
         <StyledDiv>
             <Filter>
@@ -273,112 +261,76 @@ const Content = () => {
             </Filter>
 
            <ProjectsDiv>
-           <div>
-                <img src={Bol} alt="Bol" width="100%" />
-                <p className="companyName">BOL.COM</p>
-                <p className="description">A Summer island in the Netherlands</p>
+           {listOfContents.slice(0, 4).map((content, index) => (
+            <div key={index}>
+                <img src={content.image} alt={content.name} width="100%" />
+                <p className="companyName">{content.name}</p>
+                <p className="description">{content.description}</p>
                 <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
             </div>
-           <div>
-                <img src={Kampen} alt="Kampen" width="100%" />
-                <p className="companyName">KEMPEN</p>
-                <p className="description">Not some average banking website</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={PHILIPS} alt="PHILIPS" width="100%" />
-                <p className="companyName">PHILIPS</p>
-                <p className="description">Beautiful design meets innovative technology</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={GEMEENTEMUSEUM} alt="GEMEENTEMUSEUM" width="100%" />
-                <p className="companyName">GEMEENTEMUSEUM</p>
-                <p className="description">A 100 years of Mondriaan & De Stijl</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
+           ))}
+           
+
            </ProjectsDiv>
            <ProjectsDiv2>
+                {listOfContents.slice(4, 5).map((content, index) => (
+            <div key={index}>
+                <img src={content.image} alt={content.name} width="100%" />
+                <p className="companyName">{content.name}</p>
+                <p className="description">{content.description}</p>
+                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
+            </div>
+           ))}
                 <div>
-                    <img src={heroImage} alt="Bol" width="100%" />
-                    <p className="companyName">BOL.COM</p>
-                    <p className="description">Rethinking the entire online ecosystem</p>
-                    <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-                </div>
-                <div>
-                   <div className="innerDiv">
-                     <p className="companyName">MICROSOFT</p>
-                     <p className="description">Tapping into Ireland’s unique gaming culture and bringing a fresh flavour to their Xbox social media channels</p>
+                {listOfContents.slice(5, 7).map((content, index) => (
+                    <div className="innerDiv" key={index}>
+                     <p className="companyName">{content.name}</p>
+                     <p className="description">{content.description}</p>
                      <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
                    </div>
-                   <div className="innerDiv">
-                     <p className="companyName">O’NEILL</p>
-                     <p className="description">Integrating existing content into O’Neills’s new e-commerce platform</p>
-                     <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-                   </div>
+           ))}
                 </div>
            </ProjectsDiv2>
            <ProjectsDiv>
-           <div>
-                <img src={BELIGHTNING} alt="BELIGHTNING" width="100%" />
-                <p className="companyName">BE LIGHTNING</p>
-                <p className="description">Delivering clarity on a global scale</p>
+           {listOfContents.slice(7, 9).map((content, index) => (
+            <div key={index}>
+                <img src={content.image} alt={content.name} width="100%" />
+                <p className="companyName">{content.name}</p>
+                <p className="description">{content.description}</p>
                 <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
             </div>
-           <div>
-                <img src={TUI} alt="TUI" width="100%" />
-                <p className="companyName">TUI</p>
-                <p className="description">Swipe to find your next holiday destination</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
+           ))}
            </ProjectsDiv>
 
             <ProjectsDiv2 reverse={true}>
+                     {listOfContents.slice(4, 5).map((content, index) => (
+            <div key={index}>
+                <img src={content.image} alt={content.name} width="100%" />
+                <p className="companyName">{content.name}</p>
+                <p className="description">{content.description}</p>
+                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
+            </div>
+           ))}
                 <div>
-                    <img src={heroImage} alt="Bol" width="100%" />
-                    <p className="companyName">BOL.COM</p>
-                    <p className="description">Rethinking the entire online ecosystem</p>
-                    <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-                </div>
-                <div>
-                   <div className="innerDiv">
-                     <p className="companyName">MICROSOFT</p>
-                     <p className="description">Tapping into Ireland’s unique gaming culture and bringing a fresh flavour to their Xbox social media channels</p>
+                {listOfContents.slice(5, 7).map((content, index) => (
+                    <div className="innerDiv" key={index}>
+                     <p className="companyName">{content.name}</p>
+                     <p className="description">{content.description}</p>
                      <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
                    </div>
-                   <div className="innerDiv">
-                     <p className="companyName">O’NEILL</p>
-                     <p className="description">Integrating existing content into O’Neills’s new e-commerce platform</p>
-                     <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-                   </div>
+           ))}
                 </div>
            </ProjectsDiv2>
 
            <ProjectsDiv>
-           <div>
-                <img src={CHOCOMEL} alt="CHOCOMEL" width="100%" />
-                <p className="companyName">CHOCOMEL</p>
-                <p className="description">A campaign for the limited edition letter packs</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={JBL} alt="JBL" width="100%" />
-                <p className="companyName">JBL</p>
-                <p className="description">Live like a champion with Jerome Boateng</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={ZALANDO} alt="ZALANDO" width="100%" />
-                <p className="companyName">ZALANDO</p>
-                <p className="description">Innovative SEO and content strategy for Zalando</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={KONINKLIJKEBIBLIOTHEEK} alt="KONINKLIJKEBIBLIOTHEEK" width="100%" />
-                <p className="companyName">KONINKLIJKE BIBLIOTHEEK</p>
-                <p className="description">The search of the most influential book ever</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
+                    {listOfContents.slice(9, 13).map((content, index) => (
+                    <div key={index}>
+                        <img src={content.image} alt={content.name} width="100%" />
+                        <p className="companyName">{content.name}</p>
+                        <p className="description">{content.description}</p>
+                        <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
+                    </div>
+                    ))}
            </ProjectsDiv>
 
            <QuoteSection>
@@ -389,18 +341,14 @@ const Content = () => {
            </QuoteSection>
 
             <ProjectsDiv>
-           <div>
-                <img src={LIBERTYGLOBAL} alt="LIBERTYGLOBAL" width="100%" />
-                <p className="companyName">LIBERTY GLOBAL</p>
-                <p className="description">Delivering complex commerce solutions</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
-           <div>
-                <img src={ARLA} alt="ARLA" width="100%" />
-                <p className="companyName">ARLA</p>
-                <p className="description">Swipe to find your next holiday destination</p>
-                <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
-            </div>
+                         {listOfContents.slice(13, 15).map((content, index) => (
+                    <div key={index}>
+                        <img src={content.image} alt={content.name} width="100%" />
+                        <p className="companyName">{content.name}</p>
+                        <p className="description">{content.description}</p>
+                        <p className="viewCase"><img src={PolygonBlue} alt="arrow"  height="12px"/> VIEW CASE</p>
+                    </div>
+                    ))}
            </ProjectsDiv>
 
         </StyledDiv>

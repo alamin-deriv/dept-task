@@ -1,21 +1,60 @@
+import React, {useEffect, Suspense} from 'react';
 import './App.css';
-import Hero from './pages/dept/hero';
-import Content from './pages/dept/content';
-import Client from './pages/dept/client';
-import Question from './pages/dept/question';
-import Footer from './pages/dept/footer';
 
 
-function App() {
+import Skeletonloader from "./components/SkeletonLoader";
+import loadable, { lazy } from "@loadable/component";
+
+
+
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import {
+    fetchContentsStart
+} from "./redux/dept/actions";
+
+import {
+    selectIsLoading,
+    selectListOfContents
+} from "./redux/dept/selectors";
+
+const Hero = lazy(() => import("./pages/dept/hero"));
+const Content = lazy(() => import("./pages/dept/content"));
+const Client = lazy(() => import("./pages/dept/client"));
+const Question = lazy(() => import("./pages/dept/question"));
+const Footer = lazy(() => import("./pages/dept/footer"));
+
+
+const App = ({isLoading, listOfContents, fetchContents}) => {
+
+  useEffect(() => {
+        fetchContents()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
   return (
     <div>
-      <Hero />
-      <Content />
-      <Client />
-      <Question />
-      <Footer />
+      <Suspense fallback={<Skeletonloader />}>
+        <Hero />
+        <Content listOfContents={listOfContents} isLoading={isLoading} />
+        <Client />
+        <Question />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsLoading,
+  listOfContents: selectListOfContents,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchContents: () => dispatch(fetchContentsStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+

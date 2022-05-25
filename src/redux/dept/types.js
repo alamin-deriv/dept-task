@@ -1,0 +1,8 @@
+const deptActionTypes = {
+  FETCH_CONTENT_START: "FETCH_CONTENT_START",
+  FETCH_CONTENT_SUCCESS: "FETCH_CONTENT_SUCCESS",
+  FETCH_CONTENT_FAIL: "FETCH_CONTENT_FAIL",
+
+};
+
+export default deptActionTypes;
