@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import device from './../../utils/device'
 
 const StyledDiv = styled.div`
   width: 154px;
@@ -15,6 +16,12 @@ const StyledDiv = styled.div`
     color: #FFFFFF;
     
   }
+
+   @media ${device.tabletL} {
+      width: 130px;
+      padding: 5px;
+
+    }
 
 `
 

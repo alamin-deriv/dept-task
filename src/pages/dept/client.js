@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import device from './../../utils/device'
 
 import nivea from './../../assets/icons/nivea.png'
 import mona from './../../assets/icons/mona.png'
@@ -22,6 +23,8 @@ const StyledDiv = styled.div`
   background: #F0F4F4;
   padding: 100px ;
   text-align: center;
+
+   
   
 
   & h1 {
@@ -56,6 +59,38 @@ const StyledDiv = styled.div`
       grid-gap: 100px 50px;
       margin-top: 50px;
   }
+
+  & .iconsMobile {
+      display: none;
+
+  }
+
+  @media ${device.tabletL} {
+        padding: 25px;
+
+        & h1 {
+            font-size: 30px;
+            line-height: 43px;
+        }
+
+        & .innerDiv {
+            width: 90%;
+        }
+
+        & .icons {
+            display: none;
+        }
+
+        & .iconsMobile {
+            width: 80%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 50px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+  }
+    }
 `
 
 
@@ -84,6 +119,15 @@ const Client = () => {
            <img src={ziggo} alt="ziggo" width="92.71px" height="33px"/>
            <img src={walibi} alt="walibi" width="72.86px" height="25px"/>
            <img src={klm} alt="klm" width="68.07px" height="40px"/>
+          </div>
+
+          <div className="iconsMobile">
+           <img src={nivea} alt="nivea" width="71.61px" height="20px"/>
+           <img src={mona} alt="mona" width="62.93px" height="30px"/>
+           <img src={transavia} alt="transavia" width="106.67px" height="20px"/>
+           <img src={zalando} alt="zalando" width="106.67px" height="20px" />
+           <img src={tomtom} alt="tomtom" width="101.33px" height="18px"/>
+           <img src={unilever} alt="unilever" width="114.29px" height="25px"/>
           </div>
             
         </StyledDiv>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import device from './../../utils/device'
 
 import Polygon from './../../assets/polygon.png'
 import Bol from './../../assets/BOL.png'
@@ -19,6 +20,10 @@ import ARLA from './../../assets/ARLA.png'
 
 const StyledDiv = styled.div`
   padding: 30px 50px 50px 50px;
+
+  @media ${device.tabletL} {
+        padding: 30px 20px 50px 20px;
+    }
 `
 
 const Filter = styled.div`
@@ -46,6 +51,17 @@ const Filter = styled.div`
   & img {
        margin-bottom: 8px;
   }
+
+  @media ${device.tabletL} {
+        margin-top: 70px;
+        display: block;
+        font-size: 24px;
+        line-height: 34px;
+
+        & .industries {
+         margin-bottom: 20px;
+  }
+    }
 `
 
 const ProjectsDiv = styled.div`
@@ -89,6 +105,25 @@ const ProjectsDiv = styled.div`
           margin-bottom: -2px;
       }
   }
+
+  @media ${device.tabletL} {
+        display: block;
+        
+        & div {
+        & .viewCase {
+          display: none;
+      }
+
+      & .companyName {
+          font-size: 12px;
+          line-height: 14px;
+      }
+
+      & .description {
+          margin-bottom: 30px;
+      }
+    }
+}
 `
 
 const ProjectsDiv2 = styled.div`
@@ -150,34 +185,82 @@ const ProjectsDiv2 = styled.div`
           border-top: none;
       }
   }
+
+  @media ${device.tabletL} {
+        display: block;
+
+        & div:first-child {
+            width: 100%;
+            margin-right: 0;
+      }
+
+  & div:last-child {
+      width: 100%;
+      border-top: 1px solid #DDDDDD;
+      margin-right: 0;
+      font-size: 24px;
+      line-height: 34px;
+      
+  }
+        
+        & div {
+        & .viewCase {
+          display: none;
+      }
+
+      & .companyName {
+          font-size: 12px;
+          line-height: 14px;
+      }
+
+      & .description {
+          margin-bottom: 30px;
+      }
+    }
+}
 `
 
 const QuoteSection = styled.div`
   border-top: 1px solid #DDDDDD;
   padding: 50px;
   text-align: center;
+  
+  & .innerDiv {
+     width: 85%;
+     margin: 0 auto;
+  }
 
   & .quote {
       font-size: 50px;
       line-height: 52px;
-      
-
-/* Black */
-
-     color: #0E0E0E;
+      color: #0E0E0E;
   }
 
   & .author {
       font-family: 'Arial';
-font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 15px;
-/* identical to box height */
-
-
-color: #272727;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 15px;
+      color: #272727;
   }
+
+  @media ${device.tabletL} {
+        padding: 0;
+        text-align: left;
+        border-bottom: 1px solid #DDDDDD;
+        padding-bottom: 15px;
+
+        & .innerDiv {
+            width: 100%;
+            margin: 0;
+        }
+
+        & .quote {
+            font-size: 24px;
+            line-height: 34px;
+        }
+    }
 `
 
 
@@ -299,8 +382,10 @@ const Content = () => {
            </ProjectsDiv>
 
            <QuoteSection>
-            <p className="quote">“Dept helped us tell our story through a bold new identity and a robust online<br /> experience. To the tone of 60% growth in online bookings in just one month”</p>
-            <p className="author">MATTIJS TEN BRINK - CEO, TRANSAVIA</p>
+             <div className="innerDiv">
+               <p className="quote">“Dept helped us tell our story through a bold new identity and a robust online experience. To the tone of 60% growth in online bookings in just one month”</p>
+               <p className="author">MATTIJS TEN BRINK - CEO, TRANSAVIA</p>
+             </div>
            </QuoteSection>
 
             <ProjectsDiv>

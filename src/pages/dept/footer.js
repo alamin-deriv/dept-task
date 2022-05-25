@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import device from './../../utils/device'
+
 import upArrorw from './../../assets/upArrorw.svg'
 import DEPTWhite from './../../assets/DEPTWhite.png'
 import facebook from './../../assets/social/facebook.svg'
@@ -32,6 +34,21 @@ const StyledDiv = styled.div`
           cursor: pointer;
       }
   }
+
+  @media ${device.tabletL} {
+      display: block;
+
+      & .mainFooter {
+        padding: 40px 30px;
+        width: auto;
+        
+    }
+
+      & .toUp {
+        display: none;
+      }
+    }
+
 `
 const TopDiv = styled.div`
    display: flex;
@@ -39,6 +56,13 @@ const TopDiv = styled.div`
    & .whiteLogo {
           margin-right: 70px;
       }
+
+      @media ${device.tabletL} {
+        justify-content: space-between;
+        & .whiteLogo {
+          display: none;
+      }
+    }
 `
 
 const BottomDiv = styled.div`
@@ -60,6 +84,22 @@ const BottomDiv = styled.div`
        text-align: right;
        width: 50%;
    }
+
+   @media ${device.tabletL} {
+        display: block;
+        margin-top: 25px;
+        padding-top: 25px;
+
+        & p {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+
+        & .copyright {
+          text-align: left;
+          margin-top: 20px;
+   }
+    }
 `
 const Nav = styled.div`
    display: flex;
@@ -73,6 +113,19 @@ const Nav = styled.div`
    & p {
        margin-top: 10px;
    }
+
+   @media ${device.tabletL} {
+        display: block;
+        gap: 25px;
+
+        font-size: 32px;
+        line-height: 46px;
+
+        & p {
+          margin-top: 10px;
+          margin-bottom: 15px;
+        }
+    }
 `
 
 const Social = styled.div`
@@ -81,6 +134,25 @@ const Social = styled.div`
    justify-content: right;
    padding-top: 10px;
    width: 100%;
+
+   & img {
+          width: 18px;
+          height: 18px;
+        }
+
+   @media ${device.tabletL} {
+        display: block;
+        width: 0;
+      
+        padding-top: 15px;
+        padding-right: 25px;
+
+        & img {
+          margin-bottom: 40px;
+          width: 25px;
+          height: 25px;
+        }
+    }
 `
 
 
@@ -106,9 +178,9 @@ const Footer = () => {
             <p>CONTACT</p>
           </Nav>
           <Social>
-                <img src={facebook} alt="facebook" width="18px" height="18px"/>
-                <img src={twitter} alt="twitter" width="18px" height="18px"/>
-                <img src={instagram} alt="instagram" width="18px" height="18px"/>
+                <img src={facebook} alt="facebook" />
+                <img src={twitter} alt="twitter" />
+                <img src={instagram} alt="instagram"/>
             </Social>
           </TopDiv>
           

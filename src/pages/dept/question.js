@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { createForm } from "rc-form";
+import device from './../../utils/device'
 
 import {Input, TextArea, Button} from './../../components/';
 
@@ -39,8 +40,44 @@ color: #0E0E0E;
              visibility: hidden;
              width: 100%;
          }
+         & br {
+                display: none;
+         }
      }
  }
+
+ @media ${device.tabletL} {
+        padding: 50px;
+        display: block;
+
+        & .questionWords {
+            width: 100%;
+
+            & p {
+                font-size: 30px;
+                line-height: 43px;
+            }
+        }
+
+         & .form {
+     width: 100%;
+     
+
+     & .innderDiv {
+         width: 100%;
+         display: block;
+         margin-bottom: 30px;
+
+         & .visibility {
+             display: none;
+         }
+
+         & br {
+             display: block;
+         }
+     }
+ }
+    }
 `
 
 
@@ -78,6 +115,7 @@ const Question = ({form}) => {
                                 rules: [{ required: true }],
                      })}
                 />
+                <br />
                 <Input 
                   type="email" 
                   label="EMAIL"
@@ -85,9 +123,7 @@ const Question = ({form}) => {
                   name="email"
                   value="email"
                  error={
-                            (errors = getFieldError("email")
-                                        ? "This field is required"
-                            : null)
+                            (errors = getFieldError("email"))
                             }
                             {...getFieldProps(`email`, {
                             rules: [{ required: true, type: 'email' }],

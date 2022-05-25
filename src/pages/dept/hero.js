@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import {Header} from './../../components/';
+import device from './../../utils/device'
 
 import heroImage from './../../assets/heroImage.png'
 
@@ -18,6 +19,21 @@ const StyledDiv = styled.div`
       margin-bottom: 0;
       margin-left: 50px;
   }
+
+  @media ${device.tabletL} {
+        weight: 100%;
+        padding: 0;
+        background-position: center bottom;
+        height: 320px;
+
+        & h1 {
+          font-weight: 400;
+          font-size: 170px;
+          line-height: 244px;
+          margin-left: 25px;
+          margin-top: -25px;
+        }
+    }
 
 `
 
@@ -38,6 +54,14 @@ cursor: pointer;
 /* FWhite */
 
 color: #FFFFFF;
+
+@media ${device.tabletL} {
+        weight: 80%;
+        float: none;
+        margin: 0 auto;
+        margin: 20px;
+        text-align: center;
+    }
 `
 
 const Hero = () => {

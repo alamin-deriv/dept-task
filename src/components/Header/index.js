@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import LogoBlack from '../../assets/logoBlack.png';
 import MenuBar from '../../assets/menuBar.svg';
 
+import device from './../../utils/device'
+
 
 
 const HeaderContainer = styled.div`
@@ -22,12 +24,30 @@ const HeaderContainer = styled.div`
         }
     }
 
+    & .logo {
+        width:139.27px
+    }
+
+    @media ${device.tabletL} {
+        padding: 20px 15px;
+        border-bottom: none;
+
+        & .logo {
+            width: 52.82px;
+            height: 15px;
+    }
+
+     & .menu {
+        margin-top: -25px;
+    }
+    }
+
 `
 
 export const Header = () => {
     return (
         <HeaderContainer>
-           <img src={LogoBlack} alt="Logo"  width="139.27px"/>
+           <img src={LogoBlack} alt="Logo" className="logo" />
            <div className="menu">
            <h2 >MENU</h2>
            <img src={MenuBar} alt="menu"  />
