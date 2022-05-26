@@ -7,6 +7,8 @@ import device from './../../utils/device'
 
 
 const HeaderContainer = styled.div`
+    width: 90%;
+    margin: 0 auto;
     height: 100px;
     border-bottom: 1px solid black;
     box-sizing: border-box;
