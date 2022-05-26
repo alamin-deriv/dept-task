@@ -113,7 +113,7 @@ const Client = () => {
            <img src={pathe} alt="pathe" width="66.45px" height="44px"/>
            <img src={amro} alt="amro" width="131.02px" height="34px"/>
            <img src={triumph} alt="triumph" width="112.08px" height="31px"/>
-           <img src={microsoft} alt="microsoft" width="190px" height="95px"/>
+           <img src={microsoft} alt="microsoft" width="110px" />
            <img src={oxxio} alt="oxxio" width="88.83px" height="26px"/>
            <img src={nationale} alt="nationale" width="122.11px" height="29px"/>
            <img src={ziggo} alt="ziggo" width="92.71px" height="33px"/>

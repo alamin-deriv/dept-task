@@ -5,7 +5,8 @@ import deptActionTypes from "./types";
 const INITIAL_STATE = {
   isLoading: false,
   listOfContents: [],
-
+  category: "all work",
+  industry: "all industries"
 };
 
 function deptReducer(state = INITIAL_STATE, { type, payload }) {

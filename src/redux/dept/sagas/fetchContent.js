@@ -5,7 +5,7 @@ import httpClient from '../../../utils/http-client';
 
 export function* fetchContents() {
   try {
-    const response = yield httpClient.get("50ba4a2a-ef63-4dc4-ab39-71ad1de2b457");
+    const response = yield httpClient.get("2d18066b-3469-4aac-add9-e457ee65859e");
     yield put(fetchContentsSuccess(response?.data));
   } catch (error) {
 
