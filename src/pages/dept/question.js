@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
 import { createForm } from "rc-form";
 import device from './../../utils/device'
@@ -78,6 +78,14 @@ color: #0E0E0E;
      }
  }
     }
+
+    & .success {
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 52px;
+        color: 	#198754;
+        margin-bottom: 0;
+    }
 `
 
 
@@ -85,10 +93,12 @@ color: #0E0E0E;
 const Question = ({form}) => {
     const { getFieldProps, getFieldError, validateFields, } = form;
 
+    const [success, setSuccess] = useState(false)
+
     const submit = () => {
          validateFields((err, values) => {
              if (!err) {
-                console.log(values);
+                setSuccess(true);
              }
          })
      }
@@ -149,8 +159,7 @@ const Question = ({form}) => {
                 <div className="visibility"/>
             </div>
             <Button submit={submit}/>
-            
-
+            {success ? <p className="success">Message sent successfully</p> : null}
             </div>
         </StyledDiv>
     );

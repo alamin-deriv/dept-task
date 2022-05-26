@@ -3,6 +3,9 @@ import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 import {transparentize, darken} from 'polished'
 
+import device from './../../utils/device'
+
+
 const SheetBody = styled("div").attrs({ className: "flexi-sheet-body" })`
     position: fixed;
     top: 0;
@@ -21,17 +24,58 @@ const SheetBody = styled("div").attrs({ className: "flexi-sheet-body" })`
         text-align: right;
         width: auto;
         margin-left: -40px;
+        margin-top: 100px;
 
         & li {
             color: #fff;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid #A3A3A3;
+            font-size: 60px;
             line-height: 86px;
             margin-top: 11px;
+            
 
             & span {
                 text-transform: uppercase;
                 font-size: 60px;
                 font-weight: 400;
+            }
+
+            & .countries {
+              z-index: 1;
+              background-color: #0C0C0C;
+              width: 10%;
+              margin-top: -35px;
+              font-family: 'Arial';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 14px;
+              float: left;
+              text-align: left;
+
+              & p:first-child {
+                color: rgba(255, 255, 255, 0.5);
+              }
+
+              & p {
+                margin-top: 6px;
+                margin-bottom: 6px;
+              }
+            }
+
+            & .social {
+              font-family: 'Arial';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 14px;
+              float: left;
+              text-align: left;
+
+              & p {
+                margin-top: 6px;
+                margin-bottom: 6px;
+              }
             }
         }
     }
@@ -40,50 +84,37 @@ const SheetBody = styled("div").attrs({ className: "flexi-sheet-body" })`
         transform: translateX(0);
     `}
 
-    /* ${props => props.left && css`
-      top: 0;
-      left: 0;
-      box-shadow: -20px 0px 20px rgba(0,0,0,0.5); 
-      transform: translateX(-100%);
+    @media ${device.tabletL} {
+        padding: 20px 10px;
+        
+        & ul {
+          margin-left: -25px;
+          margin-top: 50px;
 
-      ${props => props.open && css`
-        transform: translateX(0);
-      `}
+          & li {
+            
 
-    `}
+            & p {
+              font-weight: 400;
+              font-size: 50px;
+              line-height: 72px;
+        }
+          }
+        }
 
-    ${props => props.bottom && css`
-      bottom: 0;
-      top: auto;
-      width: 100vw;
-      height: auto;
-      min-height: ${(props) => props.height};
-      position: fixed;
-      box-shadow: 0 3px 20px rgba(0,0,0,0.5);
-      transform: translateY(100%);
+        & .countries {
+          display: none;
+        }
 
-      ${props => props.open && css`
-        transform: translateY(0);
-      `}
+        & .social {
+          display: none;
+        }
+        
+        
 
-    `}
 
-    ${props => props.top && css`
-      bottom: auto;
-      top: 0;
-      width: 100vw;
-      height: auto;
-      min-height: ${(props) => props.height};
-      position: fixed;
-      box-shadow: 0 -3px 20px rgba(0,0,0,0.5);
-      transform: translateY(-100%);
-
-      ${props => props.open && css`
-        transform: translateY(0);
-      `}
-
-    `} */
-    
+    }
+   
 `
 const SheetOverlay = styled("div")`
     top: 0;
@@ -117,29 +148,45 @@ export const SheetClose = styled("div")`
       color: ${darken(0.4, '#454545')};
     }
 
-    /* ${props => props.left && css`
-        top: 26px;
-        right: -50px;
-        left: auto;
-    `}
-
-    ${props => props.bottom && css`
-        top: -50px;
-        right: 26px;
-        left: auto;
-    `}
-
-    ${props => props.top && css`
-        bottom: -50px;
-        right: 26px;
-        left: auto;
-        top: auto;
-    `} */
   `;
 
 export const SheetContainer = styled("div")`
     margin: 2% auto;
     width: 95%;
+
+    & .logo {
+      height: 38px;
+    }
+
+    & .cancel {
+      float: right;
+      margin-top: 10px;
+      cursor: pointer;
+      height: 16.74px;
+    }
+
+    & .polygon {
+      margin-right: 20px;
+      margin-bottom: 7px;
+    }
+
+    & .polygon2 {
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+
+    @media ${device.tabletL} {
+        & .logo {
+          height: 15px;
+          margin-left: 10px;
+        }
+
+        & .cancel {
+          margin-top: 5px;
+        }
+
+
+    }
 `
 
 export const SideSheet = props => {
@@ -157,15 +204,7 @@ export const SideSheet = props => {
                 overlayColor={props.overlayColor}
                 overlayOpacity={props.overlayOpacity}
             /> : null}
-            {/* {props.open ? <SheetClose onClick={props.onClose}> &times; </SheetClose> : null} */}
             <SheetBody open={props.open} bottom={props.bottom} top={props.top} left={props.left} width={props.width} height={props.height} >
-                {props.open ? (
-                    <>
-                    {props.closeBtn ? 
-                        <SheetClose onClick={props.onClose} bottom={props.bottom} top={props.top} left={props.left}> <span style={{ marginTop: '5px', fontSize: '30px'  }}>&times;</span> </SheetClose> : null
-                    }
-                    </>
-                ) : null}
                 {props.children}
             </SheetBody>
         </div>

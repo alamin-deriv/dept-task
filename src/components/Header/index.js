@@ -4,6 +4,9 @@ import LogoBlack from '../../assets/logoBlack.png';
 import LogoWhite from '../../assets/logoWhite.svg';
 import MenuBar from '../../assets/menuBar.svg';
 
+import CancelIcon from './../../assets/cancel.svg'
+import Polygon5 from './../../assets/Polygon5.svg'
+
 import device from './../../utils/device'
 
 import {SideSheet, SheetContainer} from '../Menu'
@@ -54,14 +57,25 @@ export const Header = () => {
     const [basic, setBasic] = useState(false)
     return (
         <>
-        <SideSheet width="100vw" open={basic} onClose={() => setBasic(false)}>
+        <SideSheet width="100vw" open={basic} > 
             <SheetContainer>
                 <div>
-                    <img src={LogoWhite} alt="Logo" className="logo" height="38px"/>
+                    <img src={LogoWhite} alt="Logo" className="logo" />
+                    <img src={CancelIcon} alt="cancel" onClick={() => setBasic(false)} className="cancel" />
                 </div>
                 <ul>
                     <li>
-                        <span>Home</span>
+                    <div className="countries">
+                        <p>Landen</p>
+                        <p>GLOBAL</p>
+                        <p><img src={Polygon5} alt="home polygon" className="polygon2" height="10px"/>NEDERLAND</p>
+                        <p>UNITED STATES</p>
+                        <p>IRELAND</p>
+                        <p>UNITED KINGDOM</p>
+                        <p>DEUTSCHLAND</p>
+                        <p>SCHWEIZ</p>
+                    </div>
+                        <img src={Polygon5} alt="home polygon" className="polygon" height="25px"/><span>Home</span>
                     </li>
                     <li>
                         <span>Work</span>
@@ -79,6 +93,13 @@ export const Header = () => {
                         <span>Stories</span>
                     </li>
                     <li>
+                    <div className="social">
+                        <p>FACEBOOK</p>
+                        <p>TWITTER</p>
+                        <p>INSTAGRAM</p>
+                        <p>LINKEDIN</p>
+                    </div>
+                        
                         <span>Careers</span>
                     </li>
                     <li>
