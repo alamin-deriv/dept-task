@@ -22,7 +22,7 @@ const StyledDiv = styled.div`
   }
 
   @media ${device.tabletL} {
-        weight: 100%;
+        background-size: contain;
         padding: 0;
         background-position: center bottom;
         height: 320px;

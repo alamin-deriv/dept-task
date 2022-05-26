@@ -10,6 +10,7 @@
     "axios": "^0.27.2",
     "localforage": "^1.10.0",
     "query-string": "^7.1.1",
+    "polished": "^4.2.2",
     "rc-form": "^2.4.12",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
