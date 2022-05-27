@@ -69,7 +69,7 @@ color: #FFFFFF;
 
 const Hero = () => {
     return (
-        <StyledDiv>
+        <StyledDiv data-testid="hero-div">
             <Header />
             <h1>WORK</h1>
             <ViewCaseDiv>

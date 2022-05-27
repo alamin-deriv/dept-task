@@ -188,7 +188,7 @@ export const Filter = ({
            }
     }
     return (
-        <FilterDiv>
+        <FilterDiv data-testid="filter">
 
               <Buttongroup>
                   <Segment

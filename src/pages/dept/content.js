@@ -127,7 +127,7 @@ const ProjectsDiv = styled.div`
 
 
 
-const Content = ({listOfContents, isLoading}) => {
+const Content = ({listOfContents}) => {
     const [category, setCategory] = useState('all work')
     const [industry, setIndustry] = useState('all industries')
 
@@ -195,11 +195,11 @@ const Content = ({listOfContents, isLoading}) => {
     }
 
     return (
-        <StyledDiv>
+        <StyledDiv data-testid="content-div">
             <Filter {...filterProps}/>
             {category === 'all work' && industry === 'all industries' ? <Main listOfContents={listOfContents} viewType={viewType} /> : <FilteredContent listOfContents={contents} viewType={viewType} />}
 
-            <QuoteSection>
+            <QuoteSection data-testid="quote-section">
              <div className="innerDiv">
                <p className="quote">“Dept helped us tell our story through a bold new identity and a robust online experience. To the tone of 60% growth in online bookings in just one month”</p>
                <p className="author">MATTIJS TEN BRINK - CEO, TRANSAVIA</p>

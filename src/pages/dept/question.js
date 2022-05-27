@@ -105,17 +105,18 @@ const Question = ({form}) => {
 
      let errors
     return (
-        <StyledDiv>
+        <StyledDiv data-testid="question-section">
             <div className="questionWords">
              <p>QUESTION? WE ARE HERE TO HELP!</p>
             </div>
-            <div className="form">
-            <div className="innderDiv">
+            <div className="form" data-testid="form">
+            <div className="innderDiv" >
                 <Input 
                     type="text" 
                     label="NAME"
                     required
                     name="name"
+                    data-testid="name-input"
                     error={
                         (errors = getFieldError('name')
                             ? 'This field is required'
@@ -131,7 +132,7 @@ const Question = ({form}) => {
                   label="EMAIL"
                   required
                   name="email"
-                  value="email"
+                  data-testid="email-input"
                  error={
                             (errors = getFieldError("email"))
                             }
@@ -146,6 +147,7 @@ const Question = ({form}) => {
                     label="MESSAGE"
                     required
                     name="message"
+                    data-testid="message-input"
                     error={
                         // eslint-disable-next-line
                         (errors = getFieldError('message')

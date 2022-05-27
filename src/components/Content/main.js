@@ -166,7 +166,7 @@ const ProjectsDiv2 = styled.div`
 
 const Main = ({listOfContents, viewType}) => {
     return (
-        <section>
+        <section data-testid="main-section">
             {viewType === 'list' ? (
                 <div style={{ margin: "50px 0"}}>
                    {listOfContents.map((content => <ListCard key={content.name} name={content.name} description={content.description} img={content.image} />))}

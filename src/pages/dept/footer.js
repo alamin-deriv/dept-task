@@ -165,8 +165,8 @@ const Footer = () => {
   };
 
     return (
-        <StyledDiv>
-          <div className="mainFooter">
+        <StyledDiv data-testid="footer-div">
+          <div className="mainFooter" data-testid="mainFooter">
           <TopDiv>
           <img src={DEPTWhite} className="whiteLogo" alt="DEPTWhite" width="100" height="27.98px"/>
             <Nav>
@@ -194,7 +194,7 @@ const Footer = () => {
           
           </BottomDiv>
           </div>
-          <div className="toUp">
+          <div className="toUp" data-testid="toUp">
             <div className="wrapper" onClick={scrollToTop}>
                 <img src={upArrorw} alt="upArrorw" />
                 <p>TOP</p>

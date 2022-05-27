@@ -96,13 +96,13 @@ const StyledDiv = styled.div`
 
 const Client = () => {
     return (
-        <StyledDiv>
+        <StyledDiv data-testid="client-div">
           <div className="innerDiv">
            <h1>CLIENTS</h1>
            <p>We value a great working relationship with our clients above all else. It’s why they often come to our parties. It’s also why we’re able to challenge and inspire them to reach for the stars.</p>
           </div>
 
-          <div className="icons">
+          <div className="icons" data-testid="list-of-icons">
            <img src={nivea} alt="nivea" width="82.35px" height="23px"/>
            <img src={mona} alt="mona" width="62.93px" height="30px"/>
            <img src={transavia} alt="transavia" width="117.33px" height="22px"/>

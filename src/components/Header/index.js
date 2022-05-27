@@ -57,7 +57,7 @@ export const Header = () => {
     const [basic, setBasic] = useState(false)
     return (
         <>
-        <SideSheet width="100vw" open={basic} > 
+        <SideSheet width="100vw" open={basic} data-testid="header"> 
             <SheetContainer>
                 <div>
                     <img src={LogoWhite} alt="Logo" className="logo" />
