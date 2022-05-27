@@ -133,6 +133,7 @@ const Content = ({listOfContents, isLoading}) => {
 
     const [contents, setContents] = useState(listOfContents)
 
+     const [viewType, setViewType] = useState('grid');
 
 
     useEffect(() => {
@@ -188,13 +189,15 @@ const Content = ({listOfContents, isLoading}) => {
         industry,
         setIndustry,
         filterindustry,
-        filterCategory
+        filterCategory,
+        viewType,
+        setViewType
     }
 
     return (
         <StyledDiv>
             <Filter {...filterProps}/>
-            {category === 'all work' && industry === 'all industries' ? <Main listOfContents={listOfContents} /> : <FilteredContent listOfContents={contents} />}
+            {category === 'all work' && industry === 'all industries' ? <Main listOfContents={listOfContents} viewType={viewType} /> : <FilteredContent listOfContents={contents} viewType={viewType} />}
 
             <QuoteSection>
              <div className="innerDiv">

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled from 'styled-components'
 import device from '../../utils/device'
+
+import ListCard from './listCard'
 
 
 import PolygonBlue from '../../assets/Polygon-blue.png'
@@ -162,11 +164,16 @@ const ProjectsDiv2 = styled.div`
 `
 
 
-const Main = ({listOfContents, isLoading}) => {
+const Main = ({listOfContents, viewType}) => {
     return (
         <section>
-            
-           <ProjectsDiv>
+            {viewType === 'list' ? (
+                <div style={{ margin: "50px 0"}}>
+                   {listOfContents.map((content => <ListCard key={content.name} name={content.name} description={content.description} img={content.image} />))}
+                </div>
+            ) : (
+                <Fragment> 
+                    <ProjectsDiv>
            {listOfContents.slice(0, 4).map((content, index) => (
             <div key={index}>
                 <img src={content.image} alt={content.name} width="100%" />
@@ -238,6 +245,10 @@ const Main = ({listOfContents, isLoading}) => {
                     </div>
                     ))}
            </ProjectsDiv>
+
+                </Fragment>
+            )}
+           
 
         </section>
     );

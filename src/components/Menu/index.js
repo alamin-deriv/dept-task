@@ -201,10 +201,10 @@ export const SideSheet = props => {
         <div {...props}>
             {props.open ? <SheetOverlay
                 onClick={props.onClose}
-                overlayColor={props.overlayColor}
-                overlayOpacity={props.overlayOpacity}
+                overlayColor="#000"
+                overlayOpacity="0.4"
             /> : null}
-            <SheetBody open={props.open} bottom={props.bottom} top={props.top} left={props.left} width={props.width} height={props.height} >
+            <SheetBody open={props.open} bottom={false} top={props.top} left={false} width={props.width} height={props.height} >
                 {props.children}
             </SheetBody>
         </div>
@@ -212,27 +212,15 @@ export const SideSheet = props => {
 }
 
 SideSheet.defaultProps = {
-    overlayColor: "#000",
-    overlayOpacity: 0.4,
     open: false,
-    bottom: false,
-    left: false,
     width: "40vw",
     height: "30vh",
-    closeBtn: true,
-    // auto: false,
 };
   
 SideSheet.propTypes = {
-    overlayColor: PropTypes.string,
-    overlayOpacity: PropTypes.number,
     open: PropTypes.bool,
-    onClose: PropTypes.any,
-    bottom: PropTypes.bool,
-    left: PropTypes.bool,
     width: PropTypes.string,
     height: PropTypes.string,
-    closeBtn: PropTypes.bool,
-    // auto: PropTypes.bool,
+
 };
   

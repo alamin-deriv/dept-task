@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import {getPath, findIndexInArray} from './../../utils/utils';
 
 
+import List from '../../assets/list.png'
+import Grid from '../../assets/grid.png'
 import Polygon from '../../assets/polygon.png'
 
 import device from './../../utils/device'
@@ -60,7 +62,7 @@ const FilterDiv = styled.div`
       cursor: pointer;
   }
 
-  & img {
+  & .arrow {
        margin-bottom: 5px;
   }
 
@@ -76,10 +78,57 @@ const FilterDiv = styled.div`
     }
 `
 
+const Segment = styled.div`
+  font-size: ${(props) => props.size};
+  background-color: ${(props) => props.color};
+  color: ${props => props.fontColor};
+  cursor: pointer;
+  width: auto;
+  padding: 8px;
+
+  & img {
+       margin-bottom: 7px;
+  }
+  
+
+  &:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+  }
+
+  &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+`;
+
+const Buttongroup = styled.div`
+  border: 1px solid #A3A3A3;
+  display: flex;
+  border-radius: 3px;
+  margin-right: 50px;
+  height: 40px;
+
+  @media ${device.tabletL} {
+        display: none;
+
+    }
+`
+
 const industries = ['all industries', 'financial', 'e-commerce', 'technology', 'electronic', 'agriculture','travelling', 'art']
 const categories = ['all work', 'shopping', 'entertainment', 'food', 'health', 'banking']
 
-export const Filter = ({category, setCategory, industry, setIndustry, filterindustry, filterCategory}) => {
+export const Filter = ({
+      category, 
+      setCategory, 
+      industry, 
+      setIndustry, 
+      filterindustry, 
+      filterCategory, 
+      viewType,
+      setViewType
+    }) => {
+
     
     const [showCategories, setShowCategories] = useState(false)
 
@@ -140,7 +189,23 @@ export const Filter = ({category, setCategory, industry, setIndustry, filterindu
     }
     return (
         <FilterDiv>
-              <div className="industries"><p>in <span onClick={handleIndustryFilter}>{industry} <img src={Polygon} alt="arrow"  height="6px"/></span></p>
+
+              <Buttongroup>
+                  <Segment
+                      color={viewType === 'grid' ? "#A3A3A3" : "#F5F5F7"}
+                      fontColor={viewType === 'grid' ? '#fff' : "#A3A3A3"}
+                      onClick={() => setViewType('grid')}>
+                        <img src={Grid} alt="Grid" height="20px"/>
+                  </Segment>
+                  <Segment
+                      color={viewType === 'list' ? "#A3A3A3" : "#F5F5F7"}
+                      fontColor={viewType === 'list' ? '#fff' : "#A3A3A3"}
+                      onClick={() => setViewType('list')}>
+                         <img src={List} alt="List" height="20px"/>
+                  </Segment>    
+              </Buttongroup>
+
+              <div className="industries"><p>in <span onClick={handleIndustryFilter}>{industry} <img src={Polygon} alt="arrow" className="arrow"  height="6px"/></span></p>
               {showIndustry && (
                 <div className="dropdown-content">
                 {industries.map((industry) => <p key={industry} onClick={() => handleSetIndustry(industry)}>{industry}</p>)}
